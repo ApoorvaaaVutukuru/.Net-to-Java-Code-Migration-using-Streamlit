@@ -4,7 +4,7 @@ from huggingface_hub import InferenceClient
 import requests
 
 load_dotenv()
-HF_TOKEN = os.getenv("HF_TOKEN")
+HF_TOKEN = os.getenv("HF_API_KEY")
 
 
 def convert_with_codegen2(code):
@@ -34,4 +34,4 @@ def convert_with_codegen2(code):
     except Exception as e3:
         print("❌ CodeGen2-1B failed:", e3)
 
-    return "💥 All model servers are currently unavailable. Please try again later, CEO Aarvii!"
+    return "💥 All model servers are currently unavailable. Please try again later!"
