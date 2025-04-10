@@ -1,11 +1,7 @@
-import os
-from dotenv import load_dotenv
+import streamlit as st
 from huggingface_hub import InferenceClient
-import requests
 
-load_dotenv()
-HF_TOKEN = os.getenv("HF_API_KEY")
-
+HF_TOKEN = st.secrets["HF_API_KEY"]
 
 def convert_with_codegen2(code):
     prompt = f"Convert the following C# code to Java:\n\n{code}\n\nJava Code:"
