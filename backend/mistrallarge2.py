@@ -1,7 +1,13 @@
 import streamlit as st
 from huggingface_hub import InferenceClient
+import os
+from dotenv import load_dotenv
 
-HF_TOKEN = st.secrets["HF_API_KEY"]
+# Load .env file locally (won’t affect Heroku)
+load_dotenv()
+
+# Get the Hugging Face token from environment variables
+HF_TOKEN = os.getenv("HF_TOKEN")
 
 def convert_with_mistral_large2(code):
     client = InferenceClient("mistralai/Mixtral-8x7B-Instruct-v0.1", token=HF_TOKEN)
